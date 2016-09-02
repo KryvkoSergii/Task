@@ -111,7 +111,7 @@
             buttons: [{
                 label: 'Закрыть',
                 action: function (dialog) {
-                    location.reload(true);
+//                    location.reload(true);
                     dialog.close();
                 }
             }]
@@ -122,7 +122,7 @@
             size: BootstrapDialog.SIZE_SMALL,
             type: BootstrapDialog.TYPE_SUCCESS,
             draggable: true,
-            title: 'Ошибка',
+            title: 'Уведомление',
             message: message,
             buttons: [{
                 label: 'Закрыть',
@@ -135,47 +135,44 @@
     };
     // XY
     var messageExpert = function () {
-
-            var formData = new FormData(document.forms.expert);
-            // отослать
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/Task/submitXY");
-            xhr.send(formData);
-            xhr.onreadystatechange = function () { // (3)
-                if (xhr.readyState != 4) return;
-                if (xhr.status != 302 && xhr.status != 200) {
-                    var message = "Ошибка сохранения. Код возврата: " + xhr.status
-                    windowAlertDanger(message);
-                } else {
-                    var message = "Информация добавлена успешно"
-                    windowAlertSuccess(message);
-
-                }
-            }
-
-    }
-
-    //blackList
-    var messagePhone = function () {
-        if(input.value.length == 10) {
-        var formData = new FormData(document.forms.blacklist);
+        var formData = new FormData(document.forms.expert);
         // отослать
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "/Task/submitPhone");
+        xhr.open("POST", "/Task/submitXY");
         xhr.send(formData);
         xhr.onreadystatechange = function () { // (3)
             if (xhr.readyState != 4) return;
             if (xhr.status != 302 && xhr.status != 200) {
                 var message = "Ошибка сохранения. Код возврата: " + xhr.status
-                windowAlertDanger(message)
-
+                windowAlertDanger(message);
             } else {
                 var message = "Информация добавлена успешно"
                 windowAlertSuccess(message);
 
             }
         }
-        }else{
+    }
+
+    //blackList
+    var messagePhone = function () {
+        if (input.value.length == 10) {
+            var formData = new FormData(document.forms.blacklist);
+            // отослать
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/Task/submitPhone");
+            xhr.send(formData);
+            xhr.onreadystatechange = function () { // (3)
+                if (xhr.readyState != 4) return;
+                if (xhr.status != 302 && xhr.status != 200) {
+                    var message = "Ошибка сохранения. Код возврата: " + xhr.status
+                    windowAlertDanger(message)
+
+                } else {
+                    var message = "Информация добавлена успешно"
+                    windowAlertSuccess(message);
+                }
+            }
+        } else {
             windowAlertDanger('Некорректный ввод. Введите 10-значный номер телефона, начиная с 0')
         }
     }
