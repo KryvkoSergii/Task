@@ -18,12 +18,17 @@ public class Table1 implements Serializable {
     private int x;
     @Column(name = "Y", nullable = false)
     private int y;
-    @Column(name = "Z", nullable = false)
+    @Column(name = "Z", nullable = true)
     private int z;
 
 
     //Constructors
     public Table1() {
+    }
+
+    public Table1(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
     public Table1(int x, int y, int z) {

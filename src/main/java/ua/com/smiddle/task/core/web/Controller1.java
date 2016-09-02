@@ -38,8 +38,8 @@ public class Controller1 {
     }
 
     @RequestMapping(value = "/submitXY", method = RequestMethod.POST)
-    public String submitXY(@RequestParam Long id, @RequestParam int x, @RequestParam int y, @RequestParam int z) {
-        Table1 t1 = new Table1(x, y, z);
+    public String submitXY(@RequestParam Long id, @RequestParam int x, @RequestParam int y /*, @RequestParam int z*/) {
+        Table1 t1 = new Table1(x, y);
         t1.setId(id);
         table1DAO.mergeTable1(t1);
         return "redirect:/";
