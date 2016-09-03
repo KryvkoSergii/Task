@@ -18,8 +18,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
-            <h1>Сервис «Эксперты»</h1>
-            <br>
+            <h3>Сервис «Эксперты»</h3>
             <form name="expert">
                 <div class="form-group"><input type="hidden" class="form-control" name="id" value="${table1.id}"></div>
                 <div class="form-group"><input type="number" class="form-control" name="x" value="${table1.x}"></div>
@@ -34,8 +33,7 @@
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <h1>Сервис «Черный список»</h1>
-            <br>
+            <h3>Сервис «Черный список»</h3>
             <form name="blacklist">
                 <%--<div class="form-group"><input type="text" class="form-control" name="phonenumber" placeholder="phonenumber"></div>  --%>
                 <div class="form-group"><input id="phonenumber" type="text" class="form-control" name="phonenumber"
