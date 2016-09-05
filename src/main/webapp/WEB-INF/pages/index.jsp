@@ -153,9 +153,9 @@
 
     //blackList
     var messagePhone = function () {
-        if (input.value.length == 10) {
+        if (input.value.length == 10 && input.value.charAt(0)=="0") {
             var formData = new FormData(document.forms.blacklist);
-            // отослать
+            // отослать+
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "/Task/submitPhone");
             xhr.send(formData);
